@@ -54,10 +54,10 @@ export const loginUser = async({email, password}) => {
   try{
     
     const resp = await signInWithEmailAndPassword(FirebaseAuth, email, password);
-    const { uid, photoURL} = resp.user;
+    const { uid, photoURL, displayName } = resp.user;
     return {
       ok: true,
-      uid, photoURL, email
+      uid, photoURL, email, displayName
     }
 
   } catch ( error ){
